@@ -22,5 +22,7 @@ chmod 644 /etc/systemd/system/klipper_config.service
 systemctl enable klipper_config.service
 sh $system/usb/setup-usbmount.sh
 sed -i "s/console=serial0,115200//g" /boot/cmdline.txt
-python $config/src/reload.py
+mv $home/stack-install/klipper.env $home/printer_data/systemd/klipper.env
+chmod +x $config/get_serial.sh
+python3 $config/src/reload.py
 
