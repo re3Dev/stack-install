@@ -8,10 +8,11 @@ rm $config/printer.cfg
 rm $config/moonraker.conf
 cp -a $home/klipper_config/. $config/
 pip3 install gitpython
-apt install xinput ripgrep nmap xscreensaver* -y
+apt install raspberrypi-kernel-headers build-essential bc dkms git xinput ripgrep nmap xscreensaver* -y
 cp $system/screensaver/.xscreensaver $home/.xscreensaver
 cp $system/klipper/klipper_config.service /etc/systemd/system/.
 mv $system/fullpageos.txt /boot/fullpageos.txt
+mv $system/config.txt /boot/config.txt
 mv $system/lightdm.conf /etc/lightdm/lightdm.conf
 mv $system/01_debian.conf /usr/share/lightdm/lightdm.conf.d/01_debian.conf
 mv $system/start_chromium_browser $home/scripts/start_chromium_browser
@@ -24,5 +25,6 @@ sh $system/usb/setup-usbmount.sh
 sed -i "s/console=serial0,115200//g" /boot/cmdline.txt
 mv $home/stack-install/klipper.env $home/printer_data/systemd/klipper.env
 chmod +x $config/get_serial.sh
+curl -sf -L https://raw.githubusercontent.com/Sineos/useful_bits/main/Linux/fix_debian_udev.sh | sudo bash
 python3 $config/src/reload.py
 
