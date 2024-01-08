@@ -3,7 +3,7 @@ home=/home/pi
 config=/home/pi/printer_data/config
 system=/home/pi/printer_data/config/src/system_config
 cd $home
-git clone --branch develop https://github.com/re3Dprinting/klipper_config
+git clone --branch experimental https://github.com/re3Dprinting/klipper_config
 rm $config/printer.cfg
 rm $config/moonraker.conf
 cp -a $home/klipper_config/. $config/
