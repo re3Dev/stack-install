@@ -5,7 +5,7 @@ config=$home/printer_data/config
 system=$config/src/system_config
 klipper_config_repo=https://github.com/re3Dprinting/klipper_config
 branch=experimental
-packages=(raspberrypi-kernel-headers build-essential bc dkms git xinput ripgrep nmap xscreensaver*)
+packages=(raspberrypi-kernel-headers build-essential bc dkms git xinput tmate ripgrep nmap xscreensaver*)
 services=(klipper_config lightdm_watchman)
 
 cd $home
